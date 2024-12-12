@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            background-color: bisque;
+        }
+
+        .pipoca{
+            background-color: brown;
+        }
+        #panela{
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="background-color: aqua;">HOME</h1>
+    <p>Ooiiiiiii    </p>
+    <p class="pipoca">Tudo bem ?</p>
+    <p id="panela">TO mal</p>
+
+    <a href="{% url 'contato'%}">Link para contatos</a>
+    {% include 'menu.html' %}
+</body>
+</html>
