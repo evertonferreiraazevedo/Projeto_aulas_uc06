@@ -1,0 +1,18 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <title>Document</title>
+</head>
+<body>
+    <h1 >Endereços</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur animi atque minus reiciendis eaque ipsa unde debitis ratione sapiente ab magni provident quis doloribus numquam, delectus similique blanditiis odio vero </p>
+    <p class="pipoca">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus asperiores numquam neque ipsa illo sunt, facilis sed nemo tenetur nostrum quas, facere doloremque, est deleniti voluptatum labore amet dignissimos maxime.</p>
+    <p id="panela">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam ut fugiat placeat quia commodi perferendis alias. Voluptatibus quae unde expedita, ratione non doloribus possimus dicta explicabo aut itaque perferendis commodi.</p>
+
+    <a href="{% url 'contato'%}">Link para contatos</a>
+    {% include 'menu.html' %}
+</body>
+</html>

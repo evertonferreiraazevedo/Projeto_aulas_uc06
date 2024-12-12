@@ -1,0 +1,21 @@
+body{
+    background-color: #632d52;
+}
+p{
+    font-family: "Comic Sans MS";
+    background-color: bisque;
+}
+h1{
+    font-family: "Comic Sans MS";
+    background-color: aliceblue;
+}
+a{
+    font-family: "Comic Sans MS";
+    color: white;
+}
+.pipoca{
+    background-color: brown;
+}
+#panela{
+    background-color: yellow;
+}
