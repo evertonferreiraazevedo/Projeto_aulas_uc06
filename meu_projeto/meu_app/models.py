@@ -24,4 +24,4 @@ class Pedido(models.Model):
     quantidade = models.IntegerField()  # Quantidade do produto no pedido
 
     def __str__(self):
-        return f"Pedido de {self.cliente.nome} - Produto: {self.produto.nome}
+        return "Pedido de {self.cliente.nome} - Produto: {self.produto.nome}"
