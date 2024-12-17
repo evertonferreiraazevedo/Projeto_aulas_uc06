@@ -1,15 +1,15 @@
-<h1>Cadastro de Clientes</h1>
 
+<h1>Cadastro de Cliente</h1>
 <form method="post">
-    {% csrt_token %}
-    <label> Nome:</label>
-    <input type="text" name="nome" required>
+    {% csrf_token %}
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" required><br><br>
 
-    <label> Telefone:</label>
-    <input type="text" name="telefone" required>
+    <label for="telefone">Telefone:</label>
+    <input type="text" name="telefone" required><br><br>
 
-    <label> email:</label>
-    <input type="email" name="email" required>
+    <label for="email">Email:</label>
+    <input type="email" name="email" required><br><br>
 
-
+    <button type="submit">Cadastrar Cliente</button>
 </form>
