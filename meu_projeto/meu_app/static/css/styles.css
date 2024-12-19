@@ -1,21 +1,79 @@
-body{
-    background-color: #632d52;
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
-p{
-    font-family: "Comic Sans MS";
-    background-color: bisque;
-}
-h1{
-    font-family: "Comic Sans MS";
-    background-color: aliceblue;
-}
-a{
-    font-family: "Comic Sans MS";
+
+h1 {
+    background-color: #4caf50;
     color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
 }
-.pipoca{
-    background-color: brown;
+
+form {
+    background-color: #fff;
+    padding: 10%;
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-#panela{
-    background-color: yellow;
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+form input,
+form select,
+form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para o menu lateral */
+nav {
+    background-color: #4caf50;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Alinha os itens lado a lado */
+    justify-content: center; /* Centraliza os itens */
+}
+
+nav li {
+    margin: 0 10px; /* Espaçamento entre os links */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block; /* Para garantir que o link seja um bloco */
+}
+
+nav a:hover {
+    background-color: #45a049;
+    border-radius: 4px;
 }

@@ -1,0 +1,37 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <title>{% block title %}Título da Página{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Minha Aplicação</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'sobre' %}">Sobre</a></li>
+                <li><a href="{% url 'endereco' %}">Endereço</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><a href="{% url 'parceiros' %}">Parceiros</a></li>
+                <li><a href="{% url 'cadastrar_cliente' %}">Cadastrar Cliente</a></li>
+                <li><a href="{% url 'cadastrar_produto' %}">Cadastrar Produto</a></li>
+                <li><a href="{% url 'cadastrar_pedido' %}">Cadastrar Pedido</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <p>Bem-vindo à minha aplicação!</p>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Minha Aplicação Simples</p>
+    </footer>
+</body>
+</html>
