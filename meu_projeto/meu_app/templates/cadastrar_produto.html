@@ -1,0 +1,12 @@
+<!-- templates/cadastrar_produto.html -->
+<h1>Cadastro de Produto</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" required><br><br>
+
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" name="quantidade" required><br><br>
+
+    <button type="submit">Cadastrar Produto</button>
+</form>

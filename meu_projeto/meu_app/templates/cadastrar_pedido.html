@@ -1,0 +1,23 @@
+<!-- templates/cadastrar_pedido.html -->
+<h1>Cadastro de Pedido</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="cliente">Cliente:</label>
+    <select name="cliente" required>
+        {% for cliente in clientes %}
+            <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="produto">Produto:</label>
+    <select name="produto" required>
+        {% for produto in produtos %}
+            <option value="{{ produto.id }}">{{ produto.nome }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" name="quantidade" required><br><br>
+
+    <button type="submit">Cadastrar Pedido</button>
+</form>
