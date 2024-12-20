@@ -16,7 +16,7 @@ h1 {
 
 form {
     background-color: #fff;
-    padding: 10%;
+    padding: 5%;
     max-width: 400px;
     margin: 20px auto;
     border-radius: 8px;
@@ -63,17 +63,31 @@ nav ul {
 }
 
 nav li {
-    margin: 0 10px; /* Espaçamento entre os links */
+    margin: 0 1%; /* Espaçamento entre os links */
 }
 
 nav a {
     color: white;
-    text-decoration: none;
+    text-decoration: none; 
     padding: 10px 20px;
     display: inline-block; /* Para garantir que o link seja um bloco */
+    font-weight: bolder;
+    
 }
 
 nav a:hover {
     background-color: #45a049;
-    border-radius: 4px;
+    border-radius: 10%;
+}
+
+#rodape{
+    text-align: center;
+    color: white;
+}
+
+.conteudo{
+    width: 80%; /* Largura do conteúdo */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    
 }
