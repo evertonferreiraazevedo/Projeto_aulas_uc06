@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Clientes{% endblock %}
+
+{% block content %}
+<h1>Clientes</h1>
+<ul>
+    {% for cliente in clientes %}
+        <li>
+            {{ cliente.nome }}
+            <form class="limpo" method="post" action="{% url 'excluir_cliente' cliente.id %}">
+                {% csrf_token %}
+                <button type="submit" onclick="return confirm('Excluir este cliente?');">
+                    Excluir
+                </button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

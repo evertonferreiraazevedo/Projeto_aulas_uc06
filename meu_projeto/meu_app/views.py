@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import *
 
@@ -29,11 +29,11 @@ def cadastrar_cliente(request):
         
         # Verifica se o e-mail já está no banco
         if Cliente.objects.filter(email=email).exists():
-            return HttpResponse("Erro: Este e-mail já está cadastrado!")  # Mensagem de erro amigável
+            return HttpResponse("Erro: Este e-mail já está cadastrado!")
         
         try:
             Cliente.objects.create(nome=nome, telefone=telefone, email=email)
-            return HttpResponse("Cliente cadastrado com sucesso! <a href='/cadastrar_cliente/'>Cadastrar outro cliente</a>")
+            return render(request, 'cadastro_cliente.html')
         except IntegrityError:
             return HttpResponse("Erro ao cadastrar cliente. Verifique os dados informados. <a href='/cadastrar_cliente/'>Tente Novamente</a>")
     
@@ -86,3 +86,11 @@ def cadastrar_pedido(request):
             return HttpResponse("Erro: Todos os campos são obrigatórios. <a href='/cadastrar_pedido/'>Tentar novamente</a>")
     
     return render(request, 'cadastrar_pedido.html', {'clientes': clientes, 'produtos': produtos})
+
+def listar_clientes(request):
+    clientes = Cliente.objects.all()
+    return render(request, 'listar_clientes.html', {'clientes': clientes})
+
+def excluir_cliente(request, cliente_id):
+    Cliente.objects.filter(id=cliente_id).delete()
+    return redirect('listar_clientes')

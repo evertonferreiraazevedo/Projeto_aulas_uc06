@@ -14,6 +14,7 @@ class Produto(models.Model):
     quantidade = models.IntegerField(default=0)
     descricao = models.TextField(blank=True)
 
+
     def __str__(self):
         return self.nome
 
