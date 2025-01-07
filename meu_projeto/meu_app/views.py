@@ -94,3 +94,26 @@ def listar_clientes(request):
 def excluir_cliente(request, cliente_id):
     Cliente.objects.filter(id=cliente_id).delete()
     return redirect('listar_clientes')
+
+def editar_cliente(request, cliente_id):
+    # Busca o cliente pelo ID
+    cliente = get_object_or_404(Cliente, id=cliente_id)
+
+    if request.method == 'POST':
+        # Recebe os dados do formulário
+        cliente.nome = request.POST.get('nome')
+        cliente.telefone = request.POST.get('telefone')
+        cliente.email = request.POST.get('email')
+
+        # Verifica se o e-mail já está no banco de dados e não pertence ao cliente atual
+        if Cliente.objects.filter(email=cliente.email).exclude(id=cliente.id).exists():
+            return HttpResponse("Erro: Este e-mail já está cadastrado para outro cliente.")
+
+        # Salva as alterações no banco de dados
+        cliente.save()
+
+        # Redireciona para a página de listagem de clientes
+        return redirect('listar_clientes')
+
+    # Se for um GET, apenas exibe o formulário com os dados atuais
+    return render(request, 'editar_clientes.html', {'cliente': cliente})

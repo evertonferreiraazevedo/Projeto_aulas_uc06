@@ -60,6 +60,7 @@ nav ul {
     margin: 0;
     display: flex; /* Alinha os itens lado a lado */
     justify-content: center; /* Centraliza os itens */
+    text-align: center;
 }
 
 nav li {
@@ -92,6 +93,53 @@ nav a:hover {
     
 }
 
-.form_exluir{
+/* Estilo para o link de exclusão */
 
+#deletar{
+    width: 100px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ff0000;
+}
+#deletar a {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#deletar:hover {
+    background-color: #e50000;
+}
+
+#atualizar{
+    width: 100px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #00ffff;
+}
+#atualizar a {
+    color: rgb(10, 10, 10);
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#atualizar:hover {
+    background-color: #00e5e5;
+}
+
+#form_listar{
+    background-color: #ffffff;
+    width: 300px;
+    height: 70px;
+    padding: 20px;
 }

@@ -6,16 +6,18 @@
 <h1>Clientes</h1>
 <ul>
     {% for cliente in clientes %}
-        <li>
-            {{ cliente.nome }}
-            <form class="limpo" method="post" action="{% url 'excluir_cliente' cliente.id %}">
-                {% csrf_token %}
-                <button type="submit" onclick="return confirm('Excluir este cliente?');">
-                    Excluir
-                </button>
-            </form>
-        </li>
+    <form id="form_listar">
+    <p>
+            {{ cliente.nome }} 
+           <button id="deletar"> <a href="{% url 'excluir_cliente' cliente.id %}" onclick="return confirm('Excluir este cliente?');">
+                Excluir 
+            </a>
+        </button>
+        <button id="atualizar">
+            <a href="{% url 'editar_cliente' cliente.id %}"> Editar</a>           
+        </button>
+    </p>
+    </form>
     {% endfor %}
 </ul>
-
 {% endblock %}
