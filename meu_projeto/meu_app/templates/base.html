@@ -1,15 +1,23 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>{% block title %}Título da Página{% endblock %}</title>
 </head>
 <body>
     <header>
         <h1>Minha Aplicação</h1>
+        {% if user.is_authenticated %}
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    {% endif %}
+
+
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
@@ -24,7 +32,8 @@
             </ul>
         </nav>
     </header>
-    
+
+    <!-- Exibe o botão de Logout apenas se o usuário estiver autenticado -->
 
     <main>
         {% block content %}

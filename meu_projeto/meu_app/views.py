@@ -1,6 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import *
+from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -87,6 +91,7 @@ def cadastrar_pedido(request):
     
     return render(request, 'cadastrar_pedido.html', {'clientes': clientes, 'produtos': produtos})
 
+@login_required
 def listar_clientes(request):
     clientes = Cliente.objects.all()
     return render(request, 'listar_clientes.html', {'clientes': clientes})
@@ -117,3 +122,23 @@ def editar_cliente(request, cliente_id):
 
     # Se for um GET, apenas exibe o formulário com os dados atuais
     return render(request, 'editar_clientes.html', {'cliente': cliente})
+
+
+#Criar usuarios para autenticacao
+def cadastrar_usuario(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'Nome de usuário já existe.')
+        elif User.objects.filter(email=email).exists():
+            messages.error(request, 'E-mail já cadastrado.')
+        else:
+            user = User.objects.create_user(username=username, email=email, password=password)
+            user.save()
+            login(request, user)  # Faz login automático após cadastro
+            return redirect('home')  # Redireciona para a página inicial
+
+    return render(request, 'cadastrar_usuario.html')
